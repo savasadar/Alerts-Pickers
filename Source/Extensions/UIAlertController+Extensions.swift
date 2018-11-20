@@ -40,7 +40,7 @@ extension UIAlertController {
 
 
 // MARK: - Methods
-extension UIAlertController {
+public extension UIAlertController {
     
     /// Present alert view controller in the current view controller.
     ///
