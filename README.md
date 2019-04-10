@@ -448,6 +448,12 @@ There are some things to keep in mind when using `.actionSheet` and `.alert` sty
 
 ## Installing
 
+#### CocoaPods
+
+```ruby
+pod 'RLBAlertsPickers', '~> 1.1.1'
+```
+
 #### Manually
 
 Download and drop `/Source` folder in your project.

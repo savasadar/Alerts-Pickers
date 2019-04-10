@@ -208,8 +208,7 @@ final public class LocationPickerViewController: UIViewController {
 	
     override public func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        searchView.frame = CGRect(x: 8, y: 8, width: view.frame.width - 16, height: 57)
-        //searchController.searchBar.sizeToFit()
+        searchView.frame = CGRect(x: 0, y: 8, width: view.frame.width, height: 57)
         searchController.searchBar.frame.size.width = searchView.frame.width
         searchController.searchBar.frame.size.height = searchView.frame.height
         
@@ -409,7 +408,7 @@ extension LocationPickerViewController: MKMapViewDelegate {
 		if annotation is MKUserLocation { return nil }
 		
 		let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "annotation")
-		pin.pinTintColor = UIColor(hex: 0xFF2DC6)
+		pin.pinTintColor = searchView.tintColor
         
 		// drop only on long press gesture
 		let fromLongPress = annotation is MKPointAnnotation
@@ -426,10 +425,8 @@ extension LocationPickerViewController: MKMapViewDelegate {
             let width = titleLabel.textRect(forBounds: CGRect(x: 0, y: 0, width: Int.max, height: 30), limitedToNumberOfLines: 1).width
             button.frame.size = CGSize(width: width + 10, height: 30.0)
         }
-        button.backgroundColor = UIColor(hex: 0x007AFF)
+        button.backgroundColor = searchView.tintColor
 		button.setTitleColor(.white, for: UIControl.State())
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor(hex: 0x007AFF).cgColor
         button.layer.cornerRadius = 5
         button.titleEdgeInsets.left = 5
         button.titleEdgeInsets.right = 5

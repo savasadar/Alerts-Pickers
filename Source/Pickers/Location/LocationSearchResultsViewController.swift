@@ -37,7 +37,7 @@ final class LocationSearchResultsViewController: UITableViewController {
 			?? UITableViewCell(style: .subtitle, reuseIdentifier: "LocationCell")
 
 		let location = locations[indexPath.row]
-        cell.imageView?.image = UIColor(hex: 0x007AFF).toImage().imageWithSize(size: CGSize(width: 8, height: 8), roundedRadius: 4)
+        cell.imageView?.image = tableView.tintColor.toImage().imageWithSize(size: CGSize(width: 8, height: 8), roundedRadius: 4)
         cell.imageView?.dlgpicker_setupRoundCorners()
 		cell.textLabel?.text = location.name
 		cell.detailTextLabel?.text = location.address
