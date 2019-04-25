@@ -16,7 +16,7 @@ extension UIColor {
     
     /// SwifterSwift: https://github.com/SwifterSwift/SwifterSwift
     /// Short hexadecimal value string (read-only, if applicable).
-    public var shortHexString: String? {
+    var shortHexString: String? {
         let string = hexString.replacingOccurrences(of: "#", with: "")
         let chrs = Array(string)
         guard chrs[0] == chrs[1], chrs[2] == chrs[3], chrs[4] == chrs[5] else { return nil }
@@ -89,7 +89,7 @@ extension UIColor {
     }
     
     /// Random color.
-    public static var random: UIColor {
+    static var random: UIColor {
         let r = Int(arc4random_uniform(255))
         let g = Int(arc4random_uniform(255))
         let b = Int(arc4random_uniform(255))
