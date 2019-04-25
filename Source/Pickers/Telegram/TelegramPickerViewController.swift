@@ -479,6 +479,8 @@ final public class TelegramPickerViewController: UIViewController {
             if let alert = alert {
                 alert.show()
             }
+        @unknown default:
+            fatalError()
         }
     }
     
@@ -504,6 +506,8 @@ final public class TelegramPickerViewController: UIViewController {
             if let alert = localizer.localizedAlert(failure: .noAccessToPhoto) {
                 alert.show()
             }
+        @unknown default:
+            fatalError()
         }
     }
     
@@ -640,7 +644,7 @@ final public class TelegramPickerViewController: UIViewController {
     
     func openPreview(with asset: PHAsset, at indexPath: IndexPath) {
         
-        let galleryItemIndex = galleryItems.index(of: items[indexPath.item]) ?? 0
+        let galleryItemIndex = galleryItems.firstIndex(of: items[indexPath.item]) ?? 0
         
         var config = galleryConfiguration()
         self.configurator.modifyGalleryConfig(&config)
@@ -716,7 +720,7 @@ final public class TelegramPickerViewController: UIViewController {
     }
     
     func updateSendButtonsTitleIfNeeded() {
-        if let idx = buttons.index(of: .sendPhotos),
+        if let idx = buttons.firstIndex(of: .sendPhotos),
             let cell = tableView.cellForRow(at: IndexPath(row: idx, section: 0)) as? LikeButtonCell {
             let selectedAssetsTypes = self.selectedAssets.map({ $0.mediaType })
             var buttonTitle = self.localizer.localized(buttonType: .photos(count: self.selectedAssets.count))
@@ -730,7 +734,7 @@ final public class TelegramPickerViewController: UIViewController {
             cell.textLabel?.text = buttonTitle
         }
         
-        if let idx = buttons.index(of: .photoAsFile),
+        if let idx = buttons.firstIndex(of: .photoAsFile),
             let cell = tableView.cellForRow(at: IndexPath(row: idx, section: 0)) as? LikeButtonCell {
             cell.textLabel?.text = self.localizer.localized(buttonType: .sendPhotoAsFile(count: self.selectedAssets.count))
         }
@@ -1091,7 +1095,7 @@ extension TelegramPickerViewController: GalleryItemsDelegate {
         guard let item = galleryItems.item(at: index) else { return nil }
         switch item {
         case .photo(let asset), .video(let asset):
-            if let selectionIndex = selectedAssets.index(of: asset) {
+            if let selectionIndex = selectedAssets.firstIndex(of: asset) {
                 return selectionIndex + 1
             } else {
                 return nil
@@ -1179,7 +1183,7 @@ extension TelegramPickerViewController: GalleryDisplacedViewsDataSource {
     
     public func provideDisplacementItem(atIndex index: Int) -> DisplaceableView? {
         let item = galleryItems[index]
-        let indexPath = IndexPath(item: items.index(of: item) ?? 0, section: 0)
+        let indexPath = IndexPath(item: items.firstIndex(of: item) ?? 0, section: 0)
         let cell = collectionView.cellForItem(at: indexPath) as? CollectionViewCustomContentCell<UIImageView>
         return cell?.customContentView
     }
@@ -1239,7 +1243,7 @@ private extension TelegramPickerViewController {
     
     func updateAssetSelection<T>(cell: CollectionViewCustomContentCell<T>? = nil, asset: PHAsset, at indexPath: IndexPath) where T: UIView {
         if selectedAssets.contains(asset) {
-            cell?.updateSelectionIndex(isSelected: true, with: (selectedAssets.index(of: asset) ?? 0) + 1)
+            cell?.updateSelectionIndex(isSelected: true, with: (selectedAssets.firstIndex(of: asset) ?? 0) + 1)
         } else {
             cell?.updateSelectionIndex(isSelected: false, with: 0)
         }

@@ -10,7 +10,7 @@ import Foundation
 
 internal extension Bundle {
     
-    internal var dlgpicker_appName: String {
+    var dlgpicker_appName: String {
         if let bundleName = self.object(forInfoDictionaryKey: kCFBundleNameKey as String) as? String {
             return bundleName
         }

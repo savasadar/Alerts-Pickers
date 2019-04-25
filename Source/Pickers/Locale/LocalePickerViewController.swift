@@ -306,7 +306,7 @@ extension LocalePickerViewController: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, sectionForSectionIndexTitle title: String, at index: Int) -> Int {
         if searchController.isActive { return 0 }
         tableView.scrollToRow(at: IndexPath(row: 0, section: index), at: .top , animated: false)
-        return sortedInfoKeys.index(of: title)!
+        return sortedInfoKeys.firstIndex(of: title)!
     }
     
     public func sectionIndexTitles(for tableView: UITableView) -> [String]? {

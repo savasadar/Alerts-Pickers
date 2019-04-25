@@ -32,7 +32,7 @@ internal extension AssetsCollection {
     
     // MARK: - Changes Observer
     
-    internal class ChangesObserver: NSObject, PHPhotoLibraryChangeObserver {
+    class ChangesObserver: NSObject, PHPhotoLibraryChangeObserver {
         
         // MARK: - Nested
         
