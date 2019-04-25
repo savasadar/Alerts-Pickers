@@ -253,6 +253,7 @@
 		D7C5365E21807D2000C7B69A /* PHFetchResult+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PHFetchResult+Extensions.swift"; sourceTree = "<group>"; };
 		D7C53664218094F600C7B69A /* AssetsCollection+ChangesObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AssetsCollection+ChangesObserver.swift"; sourceTree = "<group>"; };
 		D7D51A542167F205006455B6 /* AVCaptureSession+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AVCaptureSession+Extensions.swift"; sourceTree = "<group>"; };
+		EF0D3D0D2271995E0074E2E8 /* RLBAlertsPickers.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = RLBAlertsPickers.podspec; sourceTree = "<group>"; };
 		F27C7DFC2175ECF100266414 /* CollectionViewVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewVideoCell.swift; sourceTree = "<group>"; };
 		F27C7E0821771E5300266414 /* GalleryConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryConfiguration.swift; sourceTree = "<group>"; };
 		F27C7E0921771E5300266414 /* ItemControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemControllerDelegate.swift; sourceTree = "<group>"; };
@@ -478,6 +479,7 @@
 		FA3BB26A2008B41B00E06F8F = {
 			isa = PBXGroup;
 			children = (
+				EF0D3D0D2271995E0074E2E8 /* RLBAlertsPickers.podspec */,
 				FA3BB2882008B45600E06F8F /* README.md */,
 				FA3BB2CE2008B9FA00E06F8F /* LICENSE */,
 				FA3BB2A92008B46800E06F8F /* Example */,
