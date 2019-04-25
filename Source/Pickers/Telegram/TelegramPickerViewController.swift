@@ -1082,7 +1082,7 @@ extension TelegramPickerViewController: UITableViewDataSource {
 extension TelegramPickerViewController: GalleryItemsDelegate {
     
     public func isItemSelected(at index: Int) -> Bool {
-        guard let item = galleryItems.item(at: index) else { return false }
+        guard let item = galleryItems[safe: index] else { return false }
         switch item {
         case .photo(let asset), .video(let asset):
             return selectedAssets.contains(asset)
@@ -1092,7 +1092,7 @@ extension TelegramPickerViewController: GalleryItemsDelegate {
     }
     
     public func itemSelectionIndex(at index: Int) -> Int? {
-        guard let item = galleryItems.item(at: index) else { return nil }
+        guard let item = galleryItems[safe: index] else { return nil }
         switch item {
         case .photo(let asset), .video(let asset):
             if let selectionIndex = selectedAssets.firstIndex(of: asset) {
@@ -1111,7 +1111,7 @@ extension TelegramPickerViewController: GalleryItemsDelegate {
     
     public func sendItem(_ galleryViewController: GalleryViewController, at index: Int) {
         //send current asset if selected array is empty
-        if selectedAssets.isEmpty, let item = galleryItems.item(at: index) {
+        if selectedAssets.isEmpty, let item = galleryItems[safe: index] {
             switch item {
             case .photo(let asset), .video(let asset):
                 selectedAssets.append(asset)
@@ -1265,7 +1265,7 @@ private extension TelegramPickerViewController {
 extension TelegramPickerViewController: CollectionViewCustomContentCellDelegate {
     func collectionViewCustomContentCell<T>(cell: CollectionViewCustomContentCell<T>, didTapOnSelection button: UIButton) where T : UIView {
         guard let indexPath = collectionView.indexPath(for: cell),
-            let item = items.item(at: indexPath.item) else { return }
+            let item = items[safe: indexPath.item] else { return }
         
         switch item {
         case .photo(let asset), .video(let asset):

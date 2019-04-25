@@ -106,38 +106,11 @@ extension Array where Element: Equatable {
     }
 }
 
-public extension Array {
+public extension Collection {
     
-    /// Random item from array.
-    var randomItem: Element? {
-        if self.isEmpty { return nil }
-        let index = Int(arc4random_uniform(UInt32(count)))
-        return self[index]
-    }
-    
-    /// Shuffled version of array.
-    var shuffled: [Element] {
-        var arr = self
-        for _ in 0..<10 {
-            arr.sort { (_,_) in arc4random() < arc4random() }
-        }
-        return arr
-    }
-    
-    /// Shuffle array.
-    mutating func shuffle() {
-        // https://gist.github.com/ijoshsmith/5e3c7d8c2099a3fe8dc3
-        for _ in 0..<10 {
-            sort { (_,_) in arc4random() < arc4random() }
-        }
-    }
-
-    /// Element at the given index if it exists.
-    ///
-    /// - Parameter index: index of element.
-    /// - Returns: optional element (if exists).
-    func item(at index: Int) -> Element? {
-        guard index >= 0 && index < count else { return nil }
-        return self[index]
+    /// Returns the element at the specified index if it is within bounds, otherwise nil.
+    subscript (safe index: Index?) -> Element? {
+        guard let index = index else { return nil }
+        return indices.contains(index) ? self[index] : nil
     }
 }
