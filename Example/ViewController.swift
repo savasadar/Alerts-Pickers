@@ -379,8 +379,17 @@ class ViewController: UIViewController {
         case .contactsPicker:
             do{
                 if let json = try JSONSerialization.jsonObject(with: Data("[{\"id\":10,\"refDeviceId\":69,\"name\":\"baba\",\"phoneNumber\":\"5320000000\"}]".utf8), options: []) as? [[String: Any]] {
+                    var list: [Contact] = []
+                    for phone in json {
+                        let id = phone["id"] as? Int ?? -1
+                        let name = phone["name"] as? String ?? ""
+                        let phoneNumber = phone["phoneNumber"] as? String ?? ""
+                        print(name.first!.uppercased())
+                        list.append(Contact(id: String(id), firstName: name, lastName: "", phone: phoneNumber))
+                    }
+                    
                     let alert = UIAlertController(style: self.alertStyle)
-                    alert.addCustomContactsPicker(buttonTitle: "Call", contactsJson: json){ contact in Log(contact) }
+                    alert.addCustomContactsPicker(buttonTitle: "Call", contacts: list){ contact in Log(contact) }
                     alert.addAction(title: "Cancel", style: .cancel)
                     alert.show()
                 }

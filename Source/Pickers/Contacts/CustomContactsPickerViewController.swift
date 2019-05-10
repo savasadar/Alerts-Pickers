@@ -8,7 +8,7 @@ extension UIAlertController {
     /// - Parameters:
     ///   - selection: action for selection of contact
     
-    public func addCustomContactsPicker(localizer: TelegramPickerResourceProvider? = nil, buttonTitle:String, contactsJson: [[String: Any]], selection: @escaping CustomContactsPickerViewController.Selection) {
+    public func addCustomContactsPicker(localizer: TelegramPickerResourceProvider? = nil, buttonTitle:String, contacts: [Contact], selection: @escaping CustomContactsPickerViewController.Selection) {
         let selection: CustomContactsPickerViewController.Selection = selection
         var contact: Contact?
         
@@ -20,7 +20,7 @@ extension UIAlertController {
         let vc = CustomContactsPickerViewController.init(selection: { (new) in
             addContact.isEnabled = new != nil
             contact = new
-        }, json: contactsJson)
+        }, contacts: contacts)
         
         set(vc: vc)
         addAction(addContact)
@@ -43,7 +43,7 @@ final public class CustomContactsPickerViewController: UIViewController {
     fileprivate var selection: Selection?
     
     //Contacts ordered in dicitonary alphabetically
-    fileprivate var json: [[String: Any]]
+    fileprivate var contacts: [Contact]
     fileprivate var orderedContacts = [String: [Contact]]()
     fileprivate var sortedContactKeys = [String]()
     
@@ -67,9 +67,9 @@ final public class CustomContactsPickerViewController: UIViewController {
     
     // MARK: Initialize
     
-    required public init(selection: Selection?, json: [[String: Any]]) {
+    required public init(selection: Selection?, contacts: [Contact]) {
         self.selection = selection
-        self.json = json
+        self.contacts = contacts
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -113,16 +113,7 @@ final public class CustomContactsPickerViewController: UIViewController {
     
     func updateContacts() {
         
-        var list: [Contact] = []
-        for phone in json {
-            let id = phone["id"] as? Int ?? -1
-            let name = phone["name"] as? String ?? ""
-            let phoneNumber = phone["phoneNumber"] as? String ?? ""
-            print(name.first!.uppercased())
-            list.append(Contact(id: String(id), firstName: name, lastName: "", phone: phoneNumber))
-        }
-        
-        self.orderedContacts[""] = list
+        self.orderedContacts[""] = contacts
         self.sortedContactKeys = Array(self.orderedContacts.keys).sorted(by: <)
         
         if self.sortedContactKeys.first == "#" {
