@@ -377,10 +377,18 @@ class ViewController: UIViewController {
             alert.show()
             
         case .contactsPicker:
-            let alert = UIAlertController(style: self.alertStyle)
-            alert.addContactsPicker { contact in Log(contact) }
-            alert.addAction(title: "Cancel", style: .cancel)
-            alert.show()
+            do{
+                if let json = try JSONSerialization.jsonObject(with: Data("[{\"id\":10,\"refDeviceId\":69,\"name\":\"baba\",\"phoneNumber\":\"5320000000\"}]".utf8), options: []) as? [[String: Any]] {
+                    let alert = UIAlertController(style: self.alertStyle)
+                    alert.addCustomContactsPicker(buttonTitle: "Call", contactsJson: json){ contact in Log(contact) }
+                    alert.addAction(title: "Cancel", style: .cancel)
+                    alert.show()
+                }
+            } catch let error as NSError {
+                print("Failed to load: \(error.localizedDescription)")
+            }
+            
+            
             
         case .locationPicker:
             let alert = UIAlertController(style: self.alertStyle)

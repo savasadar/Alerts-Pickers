@@ -3,7 +3,7 @@ import Contacts
 
 public struct Contact {
     
-    public var value: CNContact
+    public var value: CNContact?
     
     public var firstName: String
     
@@ -64,5 +64,13 @@ public struct Contact {
             let email = emailAddress.value as String
             emails.append((email, label))
         }
+    }
+    
+    public init(id: String, firstName: String, lastName: String, phone: String) {
+        self.id = id
+        self.firstName = firstName
+        self.lastName = lastName
+        self.company = ""
+        self.phones.append((phone, "phone"))
     }
 }

@@ -114,6 +114,7 @@
 		65CFE7DA21EBDE5600A51361 /* SegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BB2912008B46500E06F8F /* SegmentedControl.swift */; };
 		65CFE7DB21EBDE5600A51361 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3BB2922008B46500E06F8F /* TextField.swift */; };
 		65CFE7DC21EBDE5600A51361 /* PickerStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F28F1C412179EE04000F866F /* PickerStyle.swift */; };
+		B64313AF2285BCE100484BBE /* CustomContactsPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B64313AE2285BCE100484BBE /* CustomContactsPickerViewController.swift */; };
 		D71CAE0E2188386000B22700 /* TelegramPickerConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71CAE0D2188386000B22700 /* TelegramPickerConfigurator.swift */; };
 		D725CCC5216CBE6D001A6974 /* TelegramPickerResourceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D725CCC4216CBE6D001A6974 /* TelegramPickerResourceProvider.swift */; };
 		D725CCC8216CD16F001A6974 /* ExampleTelegramPickerLocalizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D725CCC7216CD16F001A6974 /* ExampleTelegramPickerLocalizer.swift */; };
@@ -238,6 +239,7 @@
 		65CFE76B21EBDE2A00A51361 /* AlertsAndPickers.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AlertsAndPickers.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65CFE76D21EBDE2A00A51361 /* AlertsAndPickers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertsAndPickers.h; sourceTree = "<group>"; };
 		65CFE76E21EBDE2A00A51361 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B64313AE2285BCE100484BBE /* CustomContactsPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomContactsPickerViewController.swift; sourceTree = "<group>"; };
 		D71CAE0D2188386000B22700 /* TelegramPickerConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramPickerConfigurator.swift; sourceTree = "<group>"; };
 		D725CCC4216CBE6D001A6974 /* TelegramPickerResourceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelegramPickerResourceProvider.swift; sourceTree = "<group>"; };
 		D725CCC7216CD16F001A6974 /* ExampleTelegramPickerLocalizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTelegramPickerLocalizer.swift; sourceTree = "<group>"; };
@@ -630,6 +632,7 @@
 		FA4B0372201A812800D282E2 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				B64313AE2285BCE100484BBE /* CustomContactsPickerViewController.swift */,
 				FA7CE6D820149F9B00FB3E72 /* ContactsPickerViewController.swift */,
 				FAAB5C99201BCD3D00CCE04D /* Managers */,
 				FAAB5C98201BCCF000CCE04D /* Models */,
@@ -1087,6 +1090,7 @@
 				F27C7E4F21771E5300266414 /* GalleryItem.swift in Sources */,
 				F27C7E5221771E5300266414 /* LayoutEnums.swift in Sources */,
 				F27C7E4A21771E5300266414 /* UIApplication.swift in Sources */,
+				B64313AF2285BCE100484BBE /* CustomContactsPickerViewController.swift in Sources */,
 				FAAB5C8C201BCAFB00CCE04D /* CountryCell.swift in Sources */,
 				F27C7E4D21771E5300266414 /* CAShapeLayer.swift in Sources */,
 				FA6E98C42017348800008C0C /* Button.swift in Sources */,
@@ -1361,7 +1365,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5G7KR5X8K5;
+				DEVELOPMENT_TEAM = 6FQXZTUKB9;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1377,7 +1381,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5G7KR5X8K5;
+				DEVELOPMENT_TEAM = 6FQXZTUKB9;
 				INFOPLIST_FILE = "$(SRCROOT)/Example/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
